@@ -1,0 +1,19 @@
+CRIANDO SEU PRIMEIRO NO GITHUB PARA COMPARTILHAR SEU PROGRESSO.
+
+1 RELEMBRANDO GIT E GITHUB
+
+1.1 Códigos e suas funções
+
+*Lembrar do Markdown Guide.
+
+- Git clone -> clonar repositório do github para o git
+
+- Cd -> entrar em pastas
+
+- Git status -> ver o status dos arquivos do seu repositório
+
+- Git add . ou git add -A -> adiciona todos os arquivos novos para serem considerados no controle de versão local.
+
+- Git commit -m "" -> commitar localmente e adicionar uma msg a essa commit.
+
+- git push origin main -> envia os commits que temos localmente para a nuvem

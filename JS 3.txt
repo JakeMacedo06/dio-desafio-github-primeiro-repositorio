@@ -1,0 +1,176 @@
+CRIANDO OBJETOS E CLASSES EM JS
+
+
+1 ENTENDENDO OBJETOS
+
+1.2 Estrutura Básica de um objeto-----------
+
+- Fica entre conchetes, agrupa valores/dados/atributos, fazendo uma coleção dos mesmos. É composto basicamente por isso, funcionando através de chave e valor.
+*OBJETO LITERAL!!
+
+Exp1:
+'''
+const vitor = {
+  nome: 'Vitor J Guerra'
+  idade: 25
+};
+
+console.log(vitor.nome);
+console.log(vitor.idade);
+console.log(vitor);
+'''
+
+1.3 Editando Informações de Um Objeto---------
+
+vitor.altura = 1.69;
+*isso ira adicionar a variável mais um valor
+
+delete vitor.nome;
+*isso deletara um valor da variável
+
+- Como visto, objeto é uma condição dinamica de chave e valor
+
+1.4 Criando métodos para o objeto
+
+- Métodos são funções dentro de um objeto:
+
+const Pessoa = {
+  nome: 'Vitor J Guerra'
+  idade: 25
+
+  descrever: function () {
+     console.log('Meu nome pe ${this.nome} e minha idade é ${this.idade}');
+};
+
+(0) This -> diz respeito ao contexto no qual essa função esta sendo inserida.
+
+(0) Descrever -> esta se referindo ao nome dado ao método. No caso a função por estar dentro do objeto, ira assumir o objeto.
+
+(0) ${} -> é usado para puxar as informações do objeto.
+
+1.4.2 Substituição de nome ou função(acessando valores de forma direta):
+
+pessoa.nome = 'Renan';
+pessoa.idade = 30;
+
+pessoa.descrever = function () {}
+
+1.5 Acessando dinamicamente valores de um objeto----------
+
+- Acessar valores através de uma sintaxe mais dinâmica:
+
+Exp1: 
+'''
+const atributo = 'idade';
+
+console.log(pessoa[atributo]);
+''
+
+Exp2:
+'''
+console.log(pessoa['nome']);
+'''
+
+(!) Através de uma string, estamos acessando dinamicamente o atributo.
+
+1.5.2 Reatribuindo valores com esse método:
+
+'''
+pessoa['nome'] = 'teste';
+'''
+
+*Você nao precisa saber o nome do atributo nome para modifica-lo nesse caso.
+
+
+2 ENTENDENDO CLASSES
+
+2.2 Como criar Classes e Instâncias
+
+(0) Definição CLASSE -> Classe é um modelo, define como deve ser o objeto.
+
+(1) Definição INSTÂNCIA -> É uma ocorrência daquele objeto. Um ou mais objetos criados baseados no modelo da classe, contendo valores diferentes.
+
+*Instanciando um objeto da classe pessoa ->
+Exp:
+'''
+class Pessoa {
+   nome;
+   idade;
+
+   descrever() {
+      console.log('Meu nome é  ${this.nome} e minha idade é  ${this.idade}');
+  }
+}
+
+const jake = New Pessoa();
+jake.nome = 'Jake Macêdo de Oliveira';
+jake.idade = 17;
+
+jake.descrever();
+
+2.3 Criando instâncias com constructor
+
+- Podemos atravês do constructor criar parâmentos obrigatórios, ou atributos que terão ou serão adicionados obrigatoriamente em todos os objetos da classe pessoa.
+
+Exp1 (colocando atributos fixos):
+'''
+constructor() {
+   this.nome = 'be';
+   this.idade = 20;
+}
+'''
+*Nesse caso, os atributos nome e idade seriam preenchidos automaticamente pelos valores setados.
+
+
+Exp2 (colocando parâmetros obrigatórios):
+'''
+constructor (nome, idade) {
+   this.nome = nome
+   this.idade = idade
+   this.anoDeNascimento = 2023 - idade;
+}
+
+const jake = new Pessoa('Jake', 17);
+'''
+*Já neste cenário, poderiamos automatizar a atribuição de valores aos dois campos, de idade e nome.
+
+- Orientação a objeto -> É a criação de definições de objetos, contratos de como eles devem ser. E contendo instâncias que seguem esses contratos, criando novas ocorrências da classe.
+
+2.4 Funções recebendo objetos--------
+
+- A função agora nao receberá somente 1 valor literal, ira receber uma coleção de valores por meio do objeto.
+
+Exp1 (COMPARAÇÃO DE INSTÂNCIAS):
+
+''' 
+function compararPessoas(p1, p2) {
+   if (p1.idade > p2.idade) {
+       console.log('${p1.nome} é mais velho(a) que ${p2.nome}');
+   } else if (p2.idade > p1.idade) {
+       console.log('${p2.nome} é mais velho(a) que ${p1.nome}');
+   } else {
+       console.log('${p1.nome} e ${p2.nome} tem a mesma idade');
+}
+
+3 DICAS 
+
+(0) Variáveis dentro de uma classe ou objeto são chamadas de atributos. 
+
+(1) O que diferencia o método da função, é que o método é uma ação dentro de um objeto.
+
+(2) This é usado APENAS para os atributos do objeto.
+
+(3) Sempre iniciar o nome da classe com letra maiuscula, mantendo a palavra no singular.
+
+(4) Os parâmetros são usados somente quando precisamos solicitar dados externos a usuário para concluir a operação. Caso a informação já esteja contida dentro do objeto, não será necessário.
+
+(5) A diferença entre função e método é que a função é livre de qualquer objeto, enquanto o próprio método é estático ou está em um objeto. 
+- Um método é capaz de operar com dados contidos na classe (lembrando que um objeto é uma instância de uma classe - a classe é a definição, o objeto é uma instância desses dados).
+
+
+
+
+*console log x return -> console log no objeto imprime sem ser possível reutilizar o valor. Return faz outras pessoas poderem usar o valor.
+*Variável X Objeto. 
+*pessoa['nome'] -> notação de coleção ??
+*orientada a objeto
